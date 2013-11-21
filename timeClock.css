@@ -1,0 +1,26 @@
+/* 
+    Document   : timeClock
+    Created on : Sep 4, 2013, 4:55:52 PM
+    Author     : cmanson
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+    
+}
+
+notActive {
+    -fx-background-color: cornsilk;
+}
+
+setActive {
+    -fx-background-color: palegreen;
+}
+
+setTotal {
+    -fx-background-color: palegoldenrod;
+    -fx-font-weight: bold;
+}
+

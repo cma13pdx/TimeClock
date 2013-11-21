@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml" fx:controller="timeclock.TimeClockFXMLController">
+  <children>
+    <Label fx:id="label" layoutX="126.0" layoutY="120.0" minHeight="16.0" minWidth="69.0" />
+    <Accordion prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <expandedPane>
+        <TitledPane id="TimeClockAccordion" fx:id="x1" animated="false" contentDisplay="CENTER" text="Time Clock" textAlignment="CENTER" textFill="#990000">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <SplitPane dividerPositions="0.27714285714285714" focusTraversable="true" orientation="VERTICAL" prefHeight="352.0" prefWidth="396.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <items>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="95.0" prefWidth="394.0">
+                      <children>
+                        <Button fx:id="clockIn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleClockIn" prefWidth="69.0" text="Clock In" textAlignment="CENTER" />
+                        <Button fx:id="clockOut" layoutX="307.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleClockOut" text="Clock Out" textAlignment="CENTER" />
+                        <TextField fx:id="startClock" layoutX="14.0" layoutY="49.0" prefWidth="130.0" />
+                        <TextField fx:id="stopClock" layoutX="250.0" layoutY="47.0" prefWidth="130.0" />
+                        <ChoiceBox fx:id="appChoice" layoutX="105.0" layoutY="14.0" prefWidth="184.0">
+                          <items>
+                            <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Item 1" />
+                              <String fx:value="Item 2" />
+                              <String fx:value="Item 3" />
+                            </FXCollections>
+                          </items>
+                        </ChoiceBox>
+                        <Button fx:id="clockSS" layoutX="172.0" layoutY="47.0" mnemonicParsing="false" onAction="#handleStopStartClock" prefWidth="50.0" text="Edit" />
+                      </children>
+                    </AnchorPane>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <children>
+                        <TableView fx:id="timeSheet" prefHeight="172.0" prefWidth="394.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn prefWidth="100.0" text="Application" fx:id="applicationCol" />
+                            <TableColumn prefWidth="35.0" text="Sun" fx:id="sundayCol" />
+                            <TableColumn prefWidth="35.0" text="Mon" fx:id="mondayCol" />
+                            <TableColumn prefWidth="35.0" text="Tue" fx:id="tuesdayCol" />
+                            <TableColumn prefWidth="35.0" text="Wed" fx:id="wednesdayCol" />
+                            <TableColumn prefWidth="35.0" text="Thu" fx:id="thursdayCol" />
+                            <TableColumn prefWidth="35.0" text="Fri" fx:id="fridayCol" />
+                            <TableColumn prefWidth="35.0" text="Sat" fx:id="saturdayCol" />
+                            <TableColumn prefWidth="50.0" text="Total" fx:id="totalCol" />
+                            <TableColumn id="idCol" prefWidth="75.0" text="ID" visible="false" fx:id="idCol" />
+                            <TableColumn editable="false" prefWidth="75.0" resizable="false" sortable="false" text="activeApp" visible="false" fx:id="activeApp" />
+                          </columns>
+                        </TableView>
+                      </children>
+                    </AnchorPane>
+                  </items>
+                </SplitPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
+      </expandedPane>
+      <panes>
+        <fx:reference source="x1" />
+        <TitledPane animated="false" text="Applications">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          </content>
+        </TitledPane>
+      </panes>
+    </Accordion>
+  </children>
+  <stylesheets>
+    <URL value="@timeClock.css" />
+  </stylesheets>
+</AnchorPane>
